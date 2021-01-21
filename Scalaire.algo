@@ -1,0 +1,73 @@
+PROCEDURE dot_product(V1,V2 : ARRAY_OF INTEGER, VAR S:INTEGER )
+VAR
+    i : INTEGER :=0;
+BEGIN
+    S := 0
+    IF (V1.length == V2.length) THEN
+        FOR i FROM 0 TO v1.length-1 DO
+            S:= S + V1[i]*V2[i] ; 
+        END_FOR
+        Write(S);
+    ELSE Write ("We can't calculate the dot product ! ")
+    S:= NaN
+    END_IF
+END
+
+
+ALGORITHM Orthogonal_Procedure
+VAR
+    v1,v2 : ARRAY_OF INTEGER[]
+    n1 , n2 , S: INTEGER
+    
+BEGIN
+REPEAT
+    Read(n1)
+    Read(n2)
+UNTIL (n1>0 AND n2>0)
+    
+
+    dot_product(v1,v2,S)
+    IF (S=0) THEN
+        Write("The vectors are orthogonal")
+    ELSE
+        Write("The vectors are not orthogonal")
+    END_IF
+
+END
+
+FUNCTION dot_product(V1,V2 : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i , S : INTEGER
+BEGIN
+     IF (V1.length == V2.length) THEN
+        FOR i FROM 0 TO v1.length-1 DO
+            S:= S + V1[i]*V2[i] ; 
+        END_FOR
+        
+    ELSE Write ("We can't calculate the dot product ! ")
+    S:= NaN
+    
+   END_IF
+  RETURN S  
+END
+
+
+ALGORITHM Orthogonal_Function
+VAR
+    v1,v2 : ARRAY_OF INTEGER[]
+    n1 , n2 , S: INTEGER
+    
+BEGIN
+REPEAT
+    Read(n1)
+    Read(n2)
+UNTIL (n1>0 AND n2>0)
+    
+   S:=dot_product(v1,v2)
+    IF (S=0) THEN
+        Write("The vectors are orthogonal")
+    ELSE
+        Write("The vectors are not orthogonal")
+    END_IF
+
+END
